@@ -34,7 +34,7 @@ class Clock(object):
 
     """
 
-    def __init__(self, master, default_time=1):
+    def __init__(self, master, default_time=5):
 
         # Create a frame
         self.frame = Frame(master)
