@@ -44,7 +44,7 @@ class Clock(object):
         self.top = self.frame.winfo_toplevel()
 
         # Change some of it's attributes
-        self.top.title("DojoTimer") # change the title
+        self.top.title("DojoTimer 定时器") # change the title
         self.top.attributes('-topmost', 1) # make it always on top
         self.top.resizable(0, 0) # make it unresizeable
 
@@ -75,23 +75,23 @@ class Clock(object):
         self.label.pack()
 
         # Some buttons
-        self.start_btn = Button(self.frame, text="Start", command=self.start)
+        self.start_btn = Button(self.frame, text="开始", command=self.start)
         self.start_btn.pack(side=LEFT)
 
-        self.stop_btn = Button(self.frame, text='Pause', command=self.stop)
+        self.stop_btn = Button(self.frame, text='暂停', command=self.stop)
         self.stop_btn.pack(side=LEFT)
 
-        self.reset_btn = Button(self.frame, text='Reset', command=self.reset)
+        self.reset_btn = Button(self.frame, text='复位', command=self.reset)
         self.reset_btn.pack(side=LEFT)
 
         self.set_time_btn = Button(
             self.frame,
-            text = 'Set time',
+            text = '设置时间',
             command = self.set_time,
             )
         self.set_time_btn.pack(side=LEFT)
 
-        self.quit_btn = Button(self.frame, text='Quit', command=self.frame.quit)
+        self.quit_btn = Button(self.frame, text='退出', command=self.frame.quit)
         self.quit_btn.pack(side=LEFT)
 
     def start(self):
@@ -104,7 +104,7 @@ class Clock(object):
         if not self.running:
             self.top.iconify()
             self.running = True
-            self.top.title("*DojoTimer*")
+            self.top.title("*DojoTimer 定时器*")
             self.update()
 
     def update(self):
@@ -128,7 +128,7 @@ class Clock(object):
         """
         Stop the clock
         """
-        self.top.title("DojoTimer")
+        self.top.title("DojoTimer 定时器")
         self.running = False
 
     def reset(self):
@@ -148,8 +148,8 @@ class Clock(object):
         """
         try:
             self.default_time = tkSimpleDialog.askfloat(
-                'Set time',
-                'Specify the time (in minutes)',
+                '设置时间',
+                '输入时间长度 (分钟)',
                 parent=self.top
             )
             self.reset()
